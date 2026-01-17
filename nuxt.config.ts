@@ -2,6 +2,9 @@
 
 import tailwindcss from "@tailwindcss/vite";
 
+//const API_BASE_URL = import.meta.env.API_BASE_URL || 'http://localhost:8080'
+const API_BASE_URL = import.meta.env.API_BASE_URL || 'https://rest-api-go-bnnn.onrender.com'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -18,7 +21,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBase: process.env.API_BASE_URL || 'http://localhost:8080'
+      apiBase: API_BASE_URL 
     }
   },
 
