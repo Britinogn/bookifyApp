@@ -1,16 +1,16 @@
 <template>
-  <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
-    <h3 class="text-xl font-bold mb-2">{{ event.Name }}</h3>
-    <p class="text-gray-600 mb-4">{{ event.Description }}</p>
+  <div class="bg-black text-yellow-400  rounded-lg shadow-md p-6 hover:shadow-lg transition">
+    <h3 class="text-xl font-bold mb-2">{{ event.name }}</h3>
+    <p class="text-gray-200 mb-4">{{ event.description }}</p>
     
-    <div class="space-y-2 text-sm text-gray-500">
-      <p>📍 {{ event.Location }}</p>
-      <p>📅 {{ formatDate(event.dateTime)  }}</p>
+    <div class="space-y-2 text-sm text-gray-400">
+      <p>📍 {{ event.location }}</p>
+      <p>📅 {{ formatDate(event.date_time)  }}</p>
     </div>
 
     <NuxtLink
       :to="`/events/${event.id}`"
-      class="mt-4 inline-block text-blue-600 hover:text-blue-800"
+      class="mt-4 inline-block text-blue-500 hover:text-blue-600"
     >
       View Details →
     </NuxtLink>

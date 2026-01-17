@@ -1,5 +1,5 @@
 import type { Event, EventResponse } from '~/types'
-import { useAuthStore } from "~/stores/auth"
+//import { useAuthStore } from "~/stores/auth"
 import {apiClient} from '~/utils/api'
 
 
