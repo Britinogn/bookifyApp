@@ -36,7 +36,7 @@
 
       <p class="text-center">
         Don't have an account? 
-        <NuxtLink to="/signup" class="text-blue-600">Sign up</NuxtLink>
+        <NuxtLink to="/auth/signup" class="text-blue-600">Sign up</NuxtLink>
       </p>
     </div>
   </div>

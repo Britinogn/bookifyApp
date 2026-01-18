@@ -22,7 +22,7 @@ export function useEvents()  {
     }
 
     async function getEventById(id: number) {
-        const {data , error} = await useFetch<Event[]>(`/events/${id}`, {
+        const {data , error} = await useFetch<Event>(`/events/${id}`, {
             ...apiClient(),
         })
         return {
