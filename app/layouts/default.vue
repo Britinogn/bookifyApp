@@ -2,7 +2,7 @@
     <div>
         <ClientOnly>
             <LayoutsNavbar />
-            <slot />
+            <slot />  
         </ClientOnly>
     </div>
 </template>

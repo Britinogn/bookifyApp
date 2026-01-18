@@ -26,7 +26,7 @@
         </div>
 
         <div v-else-if="events && events.length > 0" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <EventCard 
+          <EventsEventCard 
             v-for="event in featuredEvents" 
             :key="event.id" 
             :event="event" 
@@ -45,11 +45,13 @@
     </section>
 
     <!-- CTA Section -->
-     <PagesCtaSection />
+    <PagesCtaSection />
   </div>
 </template>
 
 <script setup lang="ts">
+//import EventCard from '~/components/events/EventCard.vue'
+
 const { getAllEvents } = useEvents()
 
 // Fetch events for preview
