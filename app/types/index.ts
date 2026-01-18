@@ -6,6 +6,7 @@ export interface Event {
     location : string
     date_time : string
     user_id: number
+    category: string
 }
 
 export interface User {

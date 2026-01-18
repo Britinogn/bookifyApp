@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import tailwindcss from "@tailwindcss/vite";
+import { headConfig, seoConfig } from './app/config/seo.config'
 
 const API_BASE_URL = import.meta.env.API_BASE_URL || 'http://localhost:8080'
 //const API_BASE_URL = import.meta.env.API_BASE_URL || 'https://rest-api-go-bnnn.onrender.com'
@@ -32,19 +33,11 @@ export default defineNuxtConfig({
     }
   },
 
-  //app details
   app: {
-    head: {
-      title: 'Bookify Application',
-      //title: 'Event Booking App',
-
-      meta: [
-        {charset: 'utf-8'},
-        { 
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1'
-        }
-      ]
-    }
-  }
+      head: {
+        title: seoConfig.title,
+        ...headConfig
+      }
+  },
+  
 })

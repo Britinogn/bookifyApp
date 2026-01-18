@@ -1,6 +1,9 @@
 <template>
     <div>
-        <LayoutsNavbar />
-        <slot />
+        <ClientOnly>
+            <LayoutsNavbar />
+            <slot />
+        </ClientOnly>
     </div>
 </template>
+
