@@ -1,10 +1,8 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-
 import tailwindcss from "@tailwindcss/vite";
 import { headConfig, seoConfig } from './app/config/seo.config'
 
-//const API_BASE_URL = import.meta.env.API_BASE_URL || 'http://localhost:8080'
-const API_BASE_URL = import.meta.env.API_BASE_URL || 'https://rest-api-go-bnnn.onrender.com'
+const API_BASE_URL = process.env.NUXT_PUBLIC_API_BASE || 'https://rest-api-go-bnnn.onrender.com'
+//const API_BASE_URL = process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:8080'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -12,21 +10,15 @@ export default defineNuxtConfig({
   components: true,
   css: ['./app/assets/css/main.css'],
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
-
+    plugins: [tailwindcss()],
     server: {
       watch: {
         usePolling: true
       }
     }
-    
   },
-  modules: [
-    '@pinia/nuxt'
-  ],
-
+  modules: ['@pinia/nuxt'],
+  
   runtimeConfig: {
     public: {
       apiBase: API_BASE_URL 
@@ -34,13 +26,9 @@ export default defineNuxtConfig({
   },
 
   app: {
-      head: {
-        title: seoConfig.title,
-        ...headConfig
-      }
+    head: {
+      title: seoConfig.title,
+      ...headConfig
+    }
   },
-
-
-  // npm run build
-
 })
