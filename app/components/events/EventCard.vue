@@ -6,9 +6,9 @@
       
       <!-- Category Badge -->
       <div class="absolute top-4 left-4">
-        <span class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-blue-600">
+        <!-- <span class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-blue-600">
           {{ event.category || 'Event' }}
-        </span>
+        </span> -->
       </div>
 
       <!-- Featured/Star Badge -->

@@ -6,6 +6,9 @@
 .cache
 dist
 
+new.html
+random.html
+
 # Node dependencies
 node_modules
 

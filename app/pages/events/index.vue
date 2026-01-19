@@ -22,7 +22,7 @@
             <!-- Events Grid -->
             <div v-else-if="events?.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <EventsEventCard 
-                    v-for="event in events" 
+                    v-for="event in events || []" 
                     :key="event.id" 
                     :event="event" 
                 />
@@ -41,8 +41,9 @@
 const { getAllEvents } = useEvents()
 
 const { data: events, error, pending } = await useAsyncData('events', async () => {
-    const { data } = await getAllEvents()
-    return data
+    const res  = await getAllEvents()
+    return res.data || []
+    //return Array.isArray(res.data) ? res.data : (res.data?.data || [])
 })
 
 

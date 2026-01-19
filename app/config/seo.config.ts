@@ -80,7 +80,7 @@ export const headConfig = {
     { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
     
     // Manifest
-    { rel: 'manifest', href: '/site.webmanifest' },
+    //{ rel: 'manifest', href: '/site.webmanifest' },
     
     // Canonical
     { rel: 'canonical', href: seoConfig.url }
