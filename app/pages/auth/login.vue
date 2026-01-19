@@ -49,9 +49,17 @@
         <!-- Submit Button -->
         <button
           type="submit"
-          class="w-full cursor-pointer py-3 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+          class="w-full cursor-pointer py-3 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center"
+          :disabled="loading"
         >
-          Login
+          <span v-if="!loading">Login</span>
+          <span v-else class="flex items-center space-x-2">
+            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"></path>
+            </svg>
+            <span>Logging in...</span>
+          </span>
         </button>
       </form>
 
@@ -72,13 +80,27 @@ const { login } = useAuth()
 const email = ref('')
 const password = ref('')
 const errorMsg = ref('')
+const loading = ref(false) // new loading state
 
 const handleLogin = async () => {
   errorMsg.value = ''
+  loading.value = true
+
+  const start = Date.now() // track start time
   const result = await login(email.value, password.value)
-  
+  const duration = Date.now() - start
+
+  // ensure spinner shows at least 500ms
+  const minDuration = 500
+  if (duration < minDuration) {
+    await new Promise(res => setTimeout(res, minDuration - duration))
+  }
+
+  loading.value = false
+
   if (!result.success) {
     errorMsg.value = result.error || 'Login failed'
   }
 }
+
 </script>

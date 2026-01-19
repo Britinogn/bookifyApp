@@ -14,7 +14,7 @@ export function useAuth() {
         })
 
         if (error.value) {
-            return { success: false, error: error.value.message }
+            return { success: false, error: error.value.data?.message }
         }
         
         return { success: true, data: data.value }
@@ -28,7 +28,7 @@ export function useAuth() {
         })
 
         if (error.value) {
-            return { success: false, error: error.value.message }
+            return { success: false, error: error.value.data?.message || "Unauthorized" }
         }
         
         if (data.value?.token) {
